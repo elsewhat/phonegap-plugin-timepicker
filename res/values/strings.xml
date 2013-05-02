@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">no.bouvet.timepicker</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hours_label_description">hours</string>
+    <string name="hours_label">h</string>
+    <string name="minutes_label_description">minutes</string>
+    <string name="minutes_label">m</string>
+    <string name="seconds_label_description">seconds</string>
+    <string name="seconds_label">s</string>
+    <string name="timer_delete">Delete</string>
+    <string name="time_picker_time_seperator">:</string>
+    <string name="time_picker_ampm_label">--</string>
+    <string name="time_picker_cancel">Cancel</string>
+    <string name="time_picker_set">OK</string>
+    <string name="time_picker_00_label">:00</string>
+    <!-- add 30 as minutes to the time when pressing this button -->
+    <string name="time_picker_30_label">:30</string>
+
+</resources>
