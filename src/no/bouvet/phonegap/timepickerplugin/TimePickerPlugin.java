@@ -14,22 +14,32 @@ import android.util.Log;
 import com.android.deskclock.TimePickerDialogFragment;
 
 /**
- * TODO
+ * Phonegap plugin for the a native TimePicker.
+ * The timepicker is based on the Android alarm clock from the Android Open Source Project
+ * https://android.googlesource.com/platform/packages/apps/DeskClock/
+ * 
+ * 
+ * 
  */
 public class TimePickerPlugin extends CordovaPlugin implements TimePickerDialogFragment.TimePickerDialogHandler{
 	
 	public static final String JS_TIMEPICKER_METHOD = "doTimePicker";
+	
+	//we assume we only have one instance at a time
 	CallbackContext callbackContext;
 	
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
 	    Log.v("TimePicker", "JS action " + action);
 		this.callbackContext=callbackContext;
+		
+		//only react to the doTimePicker method (from .js this is defined in timepicker.js)
 		if (JS_TIMEPICKER_METHOD.equals(action)) {
 	    	
 	        cordova.getActivity().runOnUiThread(new Runnable() {
 	            public void run() {
 	            	showTimeEditDialog(cordova.getActivity().getFragmentManager()); 
+	            	//Unsure if we should have return a NO_RESULT to the callbackContext here
 	            }
 	        });
 	        return true;
@@ -37,6 +47,12 @@ public class TimePickerPlugin extends CordovaPlugin implements TimePickerDialogF
 	    return false;
 	}
 
+	/**
+	 * Display the TimePicker native component.
+	 * 
+	 * Uses fragments
+	 * 
+	 */
     public void showTimeEditDialog(FragmentManager manager) {
         final FragmentTransaction ft = manager.beginTransaction();
         final Fragment prev = manager.findFragmentByTag("time_dialog");
@@ -47,7 +63,14 @@ public class TimePickerPlugin extends CordovaPlugin implements TimePickerDialogF
         fragment.show(ft, "time_dialog");
     }
 
-	@Override
+	
+	/**
+	 * Called from when the user has selected the number of hours and minutes in the native component.
+	 * 
+	 * Will send the result to the Phonegap Callback Context
+	 * 
+	 */
+    @Override
 	public void onTimeSet(int hours, int minutes) {
 		JSONObject jsonObject = new JSONObject();
 		try {

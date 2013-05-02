@@ -1,5 +1,11 @@
 # Phonegap plugin - Timepicker
 
+Phonegap plugin that uses the Timepicker from the alarm clock in Android 4.x.
+Uses code from the Android Open Source Project under Apache License 2.0. 
+
+Currently, supports API 11 (Android 3.0) and above due to Fragments API.
+(if lower required, then support libraries should be implemented http://developer.android.com/training/basics/fragments/support-lib.html)  
+
 ## Folder structure
 
 * assets\fonts - Fonts used by the native timepicker app
