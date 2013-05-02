@@ -1,6 +1,7 @@
 # Phonegap plugin - Timepicker #
 
 ## Folder structure ## 
+
 * assets\fonts - Fonts used by the native timepicker app
 * assets\www\js\timepicker - JS method definition for plugin
 * res\ - Android resources used by the plugin (drawables, layouts, styles etc)
@@ -33,10 +34,13 @@
 
 2. Verify that res\xml\config.xml is as you'd like 
 (plugin only requires 
+
 	<plugin name="TimePicker" value="no.bouvet.phonegap.timepickerplugin.TimePickerPlugin" />
+	
 )
 
 3. Set the theme of your android activities to android:theme="@style/DeskClock". Example
+
 	<activity android:name="MainActivity" android:label="@string/app_name"
     android:theme="@style/DeskClock"
     android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale">
