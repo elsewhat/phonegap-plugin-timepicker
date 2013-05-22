@@ -8,6 +8,6 @@ cordova.define("cordova/plugin/timepicker", function(require, exports, module) {
 	}
 
 
-	var timepicker = new TimePicker();
+	var timePickerPlugin = new TimePicker();
 	module.exports = timepicker;
 });

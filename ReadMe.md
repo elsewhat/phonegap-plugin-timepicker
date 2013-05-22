@@ -29,7 +29,7 @@ Currently, supports API 11 (Android 3.0) and above due to Fragments API.
 		   var onTimePickerFail = function(result) { alert('fail!'+result); }
 		
 		   function doSelectHours(){
-		   	timepicker.doTimePicker(onTimePickerSuccess, onTimePickerFail);
+		   	timePickerPlugin.doTimePicker(onTimePickerSuccess, onTimePickerFail);
 		   }
 		   
         </script>
